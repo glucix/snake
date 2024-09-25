@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="zdjecia/snake.png" type="image/x-icon">
+</head>
+<body>
+    <div class="pierwszy">
+        <div class="reklama">
+            <img src="zdjecia/snakelogo.png" alt="nie dzialaa" width="900">
+            
+        </div>
+        <div class="kasa">
+            <div class="donate" id="danate">
+                <a href="twoj paypal matuch"><img src="zdjecia/donate.png" alt="nie dzialaa" width="50"></a>
+            </div>
+            <div class="github" id="github">
+                <a href="https://github.com/glucix"><img src="zdjecia/github.png" alt="nie dzialaa" width="50"></a>
+            </div>
+            <div class="conowego" id="conowego">
+                <a href="changelog/changelog1.html"><img src="zdjecia/zmiany.png" alt="nie dzialaa" width="50"></a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div class="game-info">
+            <p id="wynik">SCORE: <span id="score">0</span></p>
+            <p id="najwyszywynik">HIGHSCORE: <span id="highscore">0</span></p>
+        </div>
+    </div>
+        
+    
+    
+    <div class="gameOverScreen" id="gameOverScreen">
+        <h1>Game Over</h1>
+        <p>Your Score: <span id="finalScore">0</span></p>
+        <p>Highscore: <span id="finalHighscore">0</span></p>
+        <button onclick="restartGame()">Restart Game</button>
+    </div>
+
+    <footer id="footer">
+        <h2>Made by <a id="yt" href="https://www.youtube.com/@glx12" style="color:rgb(43, 255, 0); text-decoration: none;">GLUCIX</a></h2>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
