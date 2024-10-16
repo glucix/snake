@@ -2,51 +2,48 @@ body {
     font-family: monospace;
     background-image: radial-gradient(circle at center , rgb(53, 53, 49), rgb(0, 0, 0));
     background-attachment: fixed;
-    height: 100px;
     margin: 0;
-    margin: auto;
-    cursor: cell;
-    background-attachment: fixed;
-   
-    
+    height: 100vh; /* Full height of viewport */
+    overflow: hidden; /* Prevents overflow */
 }
 
 .game-container {
     text-align: center;
-    
 }
 
 canvas {
     border: 1px solid green;
     box-shadow: 0px 0px 15px 5px #ffffff;
     background-color: green;
+    max-width: 100%; /* Ensure canvas doesn't overflow */
+    max-height: 80vh; /* Limit height to 80% of viewport height */
 }
 
 .game-info {
     margin-top: 20px;
 }
 
-p{
-    font-family: monospace;
+p {
     font-size: 30px;
+    font-family: monospace;
     color: rgb(255, 255, 255);
 }
 
 .pierwszy {
-    width: 1910px;
-    height: 100px;
+    width: 100%;
+    height: 10vh; /* Responsive height */
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: auto;
     border-radius: 25px;
-    position: relative; /* Aby móc użyć pozycji absolutnej */
+    position: relative; /* To use absolute positioning */
 }
 
 .reklama {
-    position: absolute; /* Ustawienie absolutne */
-    left: 50%; /* Przesunięcie o 50% szerokości rodzica */
-    transform: translateX(-50%); /* Wycentrowanie względem własnej szerokości */
+    position: absolute;
+    left: 50%; /* Centering */
+    transform: translateX(-50%);
 }
 
 .kasa {
@@ -59,7 +56,6 @@ p{
     transform: scale(1.05);
 }
 
-/* Animacja fade-in */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -74,50 +70,11 @@ p{
     gap: 30px;
     box-shadow: 0px 0px 15px 5px #ffffff;
 }
-#difficultyMenu button:hover {
-    background-color: #555;
-    transform: scale(1.05);
-}
-@keyframes myAnim {
-	0%,
-	100% {
-		transform: rotate(0deg);
-		transform-origin: 50% 100%;
-	}
 
-	10% {
-		transform: rotate(2deg);
-	}
-
-	20%,
-	40%,
-	60% {
-		transform: rotate(-4deg);
-	}
-
-	30%,
-	50%,
-	70% {
-		transform: rotate(4deg);
-	}
-
-	80% {
-		transform: rotate(-2deg);
-	}
-
-	90% {
-		transform: rotate(2deg);
-	}
-}
-a:hover{
-    transition: background-color 0.3s, transform 0.2s;
-}
-    
-
-
-#wynik{
+#wynik, #najwyszywynik {
     border: 5px solid #ffffff;
-    width: 550px;
+    width: 80%; /* Responsive width */
+    max-width: 550px; /* Limit max width */
     height: 50px;
     border-radius: 5%;
     margin: auto;
@@ -126,19 +83,7 @@ a:hover{
     font-family: cursive;
 }
 
-#najwyszywynik{
-    border: 5px solid #ffffff;
-    width: 550px;
-    height: 50px;
-    border-radius: 5%;
-    margin: auto;
-    flex-direction: row;
-    text-align: center;
-    box-shadow: 0px 0px 15px 5px #ffffff;
-    font-family: cursive;
-
-}
-/* Stylizacja głównego kontenera */
+/* Main container styling */
 #gameContainer {
     display: flex;
     flex-direction: column;
@@ -148,27 +93,29 @@ a:hover{
     background-color: #222;
     color: #fff;
     font-family: Arial, sans-serif;
-  }
-  
-  /* Stylizacja płótna gry */
-  #gameCanvas {
+}
+
+/* Game canvas styling */
+#gameCanvas {
     border: 5px solid #fff;
     background-color: #333;
-  }
-  
-  /* Stylizacja wyniku */
-  #scoreContainer {
+    max-width: 100%; /* Prevent overflow */
+    max-height: 80vh; /* Limit height */
+}
+
+/* Score styling */
+#scoreContainer {
     margin-top: 20px;
-    font-size: 24px;
-  }
-  
-  /* Stylizacja wyniku i rekordu */
-  #score, #highscore {
+    font-size: 2vw; /* Responsive font size */
+}
+
+/* Score and high score styling */
+#score, #highscore {
     font-weight: bold;
     color: lime;
-  }
-  
- /* Stylizacja ekranu końcowego */
+}
+
+/* Game over screen styling */
 .gameOverScreen {
     position: absolute;
     top: 0;
@@ -177,35 +124,33 @@ a:hover{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
-    display: flex;
+    display: none; /* Hidden by default */
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+    font-size: 3vw; /* Responsive font size */
     text-align: center;
     z-index: 1000;
-    display: none; /* Domyślnie ukryty */
-    animation: fadeIn 0.5s ease-out; /* Dodanie animacji */
+    animation: fadeIn 0.5s ease-out; /* Fade-in animation */
 }
 
 .gameOverScreen.active {
-    display: flex; /* Pokazuje ekran końcowy */
+    display: flex; /* Show game over screen */
 }
 
 .gameOverScreen h1 {
-    font-size: 50px;
     margin-bottom: 20px;
 }
 
 .gameOverScreen p {
-    font-size: 24px;
+    font-size: 2vw; /* Responsive font size */
     margin: 10px 0;
 }
 
 .gameOverScreen button {
     margin-top: 20px;
     padding: 10px 20px;
-    font-size: 18px;
+    font-size: 1.5vw; /* Responsive font size */
     color: #000000;
     background-color: rgb(255, 255, 255);
     border: none;
@@ -219,28 +164,20 @@ a:hover{
     transform: scale(1.05);
 }
 
-/* Animacja fade-in */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Stylizacja stopki */
+/* Footer styling */
 #footer {
-    position: fixed; /* Ustawienie na fixed, aby stopka była na stałe w jednym miejscu */
-    bottom: 0; /* Ustawienie na dole */
-    left: 0; /* Ustawienie po lewej stronie */
-    width: 100%; /* Szerokość na 100% szerokości ekranu */
-    background-color: rgba(0, 0, 0, 0.8); /* Tło z lekką przezroczystością */
-    color: rgb(255, 255, 255); /* Kolor tekstu */
-    font-family: monospace; /* Czcionka monospace */
-    font-size: 20px; /* Rozmiar czcionki */
-    text-align: center; /* Wyśrodkowanie tekstu */
-    padding: 10px; /* Margines wewnętrzny */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Cień dla lepszego efektu wizualnego */
+    font-size: 20px;
+    position: fixed; /* Fixed position */
+    bottom: 0; /* Align to bottom */
+    left: 0; /* Align to left */
+    width: 100%; /* Full width */
+    background-color: rgba(0, 0, 0, 0.8); /* Background with slight transparency */
+    color: rgb(255, 255, 255); /* Text color */
+    font-family: monospace; /* Monospace font */
+    text-align: center; /* Center align */
+    padding: 10px; /* Padding */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
 }
-
-/* Existing styles... */
 
 #difficultyMenu {
     text-align: center;
@@ -250,7 +187,7 @@ a:hover{
 #difficultyMenu button {
     padding: 10px 20px;
     margin: 10px;
-    font-size: 18px;
+    font-size: 1.5vw; /* Responsive font size */
     cursor: pointer;
     color: #fff;
     background-color: #333;
@@ -263,87 +200,8 @@ a:hover{
     background-color: #555;
     transform: scale(1.05);
 }
-#gameContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #222;
-    color: #fff;
-    font-family: Arial, sans-serif;
-}
 
-/* Stylizacja płótna gry */
-#gameCanvas {
-    border: 5px solid #fff;
-    background-color: #333;
-}
-
-/* Stylizacja wyniku */
-#scoreContainer {
-    margin-top: 20px;
-    font-size: 24px;
-}
-
-/* Stylizacja wyniku i rekordu */
-#score, #highscore {
-    font-weight: bold;
-    color: lime;
-}
-
-/* Stylizacja ekranu końcowego */
-.gameOverScreen {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    text-align: center;
-    z-index: 1000;
-    display: none; /* Domyślnie ukryty */
-    animation: fadeIn 0.5s ease-out; /* Dodanie animacji */
-}
-
-.gameOverScreen.active {
-    display: flex; /* Pokazuje ekran końcowy */
-}
-
-.gameOverScreen h1 {
-    font-size: 50px;
-    margin-bottom: 20px;
-}
-
-.gameOverScreen p {
-    font-size: 24px;
-    margin: 10px 0;
-}
-
-.gameOverScreen button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 18px;
-    color: #5106ff;
-    background-color: rgb(255, 255, 255);
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.gameOverScreen button:hover {
-    background-color: rgb(56, 56, 55);
-    transform: scale(1.05);
-}
-
-/* Stylizacja ekranu startowego */
+/* Start screen styling */
 .startScreen {
     position: absolute;
     top: 0;
@@ -352,33 +210,24 @@ a:hover{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
-    display: flex;
+    display: none; /* Hidden by default */
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+    font-size: 3vw; /* Responsive font size */
     text-align: center;
     z-index: 1000;
-    display: none; /* Domyślnie ukryty */
-    animation: fadeIn 0.5s ease-out; /* Dodanie animacji */
+    animation: fadeIn 0.5s ease-out; /* Fade-in animation */
 }
 
 .startScreen.active {
-    display: flex; /* Pokazuje ekran startowy */
+    display: flex; /* Show start screen */
 }
 
 .startScreen h1 {
-    font-size: 50px;
     margin-bottom: 20px;
 }
 
 .startScreen p {
-    font-size: 24px;
+    font-size: 2vw; /* Responsive font size */
 }
-
-/* Animacja fade-in */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
