@@ -1,6 +1,6 @@
 body {
     font-family: monospace;
-    background-image: radial-gradient(circle at center , rgb(53, 53, 49), rgb(0, 0, 0));
+    background-image: radial-gradient(circle at center, rgb(53, 53, 49), rgb(0, 0, 0));
     background-attachment: fixed;
     margin: 0;
     height: 100vh; /* Full height of viewport */
@@ -16,7 +16,7 @@ canvas {
     box-shadow: 0px 0px 15px 5px #ffffff;
     background-color: green;
     max-width: 100%; /* Ensure canvas doesn't overflow */
-    max-height: 80vh; /* Limit height to 80% of viewport height */
+    max-height: 60vh; /* Limit height to 60% of viewport height */
 }
 
 .game-info {
@@ -24,8 +24,8 @@ canvas {
 }
 
 p {
-    font-size: 30px;
     font-family: monospace;
+    font-size: 25px; /* Responsive font size */
     color: rgb(255, 255, 255);
 }
 
@@ -100,7 +100,7 @@ p {
     border: 5px solid #fff;
     background-color: #333;
     max-width: 100%; /* Prevent overflow */
-    max-height: 80vh; /* Limit height */
+    max-height: 60vh; /* Limit height */
 }
 
 /* Score styling */
@@ -139,6 +139,7 @@ p {
 }
 
 .gameOverScreen h1 {
+    font-size: 4vw; /* Responsive font size */
     margin-bottom: 20px;
 }
 
@@ -166,7 +167,6 @@ p {
 
 /* Footer styling */
 #footer {
-    font-size: 20px;
     position: fixed; /* Fixed position */
     bottom: 0; /* Align to bottom */
     left: 0; /* Align to left */
@@ -174,6 +174,7 @@ p {
     background-color: rgba(0, 0, 0, 0.8); /* Background with slight transparency */
     color: rgb(255, 255, 255); /* Text color */
     font-family: monospace; /* Monospace font */
+    font-size: 30px; /* Responsive font size */
     text-align: center; /* Center align */
     padding: 10px; /* Padding */
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
@@ -225,9 +226,54 @@ p {
 }
 
 .startScreen h1 {
+    font-size: 4vw; /* Responsive font size */
     margin-bottom: 20px;
 }
 
 .startScreen p {
     font-size: 2vw; /* Responsive font size */
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+    p {
+        font-size: 4vw; /* Larger font size on mobile */
+    }
+
+    .pierwszy {
+        height: 12vh; /* Increase height for touch targets */
+    }
+
+    #gameCanvas {
+        max-height: 50vh; /* Further limit height for mobile */
+    }
+
+    .gameOverScreen h1,
+    .startScreen h1 {
+        font-size: 6vw; /* Larger font size for mobile */
+    }
+
+    .gameOverScreen p,
+    .startScreen p {
+        font-size: 4vw; /* Larger font size for mobile */
+    }
+
+    #footer {
+        font-size: 4vw; /* Adjust footer font size for mobile */
+    }
+
+    #difficultyMenu button {
+        font-size: 4vw; /* Button font size for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .pierwszy {
+        flex-direction: column; /* Stack items vertically on very small screens */
+        height: auto; /* Allow auto height */
+    }
+
+    .kasa {
+        flex-direction: column; /* Stack items vertically */
+    }
 }
